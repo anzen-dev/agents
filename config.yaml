@@ -1,0 +1,31 @@
+
+name: Local Custom API
+version: 1.0.0
+schema: v1
+
+models:
+  - name: Model 1
+    provider: openai
+    model: model-one
+    apiBase: http://localhost:8000/v1
+    apiKey: ${{ secrets.LOCAL_API_KEY }}
+    roles:
+      - chat
+      - edit
+      - apply
+    requestOptions:
+      headers:
+        X-Model-Group: general
+
+  - name: Model 2
+    provider: openai
+    model: model-two
+    apiBase: http://localhost:8000/v1
+    apiKey: ${{ secrets.LOCAL_API_KEY }}
+    roles:
+      - chat
+      - edit
+      - apply
+    requestOptions:
+      headers:
+        X-Model-Group: coding
